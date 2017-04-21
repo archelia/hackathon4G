@@ -1,4 +1,4 @@
-var citymap = {
+var february = {
   JakartaSelatan: {
     center: {
       lat: -6.261493,

@@ -23,7 +23,7 @@ header {
   left: 0;
   right: 0;
   padding: 20px;
-  background: #000;
+  background-color: white;
 }
 
 .wrapper {
@@ -58,4 +58,10 @@ header {
 
 .clear{
   clear: both;
+}
+
+header .title {
+  text-align: center;
+  color: #ba0e0e;
+  font-weight: bold;
 }
