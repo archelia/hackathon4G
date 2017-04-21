@@ -4,67 +4,56 @@
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Circles</title>
-    <style>
-        /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-
-        #map {
-            height: 100%;
-        }
-        /* Optional: Makes the sample page fill the window. */
-
-        html,
-        body {
-            height: 70%;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+    <title>Map Spreading Growth</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/layout.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/map.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
 </head>
 
 <body>
-    <div id="map"></div>
-    <div class="map-content">
-        <h2>Bukalapak Seller Population</h2>
-        <div id="controls" class="nicebox">
-            <div>
-                <select id="census-variable">
-                <option value="json/seller-population">Seller Population
-                school</option>
-                <option value="https://storage.googleapis.com/mapsdevsite/json/DP02_0066PE">Percent of population over 25 that completed high
-                school</option>
-                <option value="https://storage.googleapis.com/mapsdevsite/json/DP05_0017E">Median age</option>
-                <option value="https://storage.googleapis.com/mapsdevsite/json/DP05_0001E">Total population</option>
-                <option value="https://storage.googleapis.com/mapsdevsite/json/DP02_0016E">Average family size</option>
-                <option value="https://storage.googleapis.com/mapsdevsite/json/DP03_0088E">Per-capita income</option>
-              </select>
-            </div>
-            <div id="legend">
-                <div id="census-min">min</div>
-                <div class="color-key"><span id="data-caret">&#x25c6;</span></div>
-                <div id="census-max">max</div>
-            </div>
-        </div>
-        <div id="data-box" class="nicebox">
-            <label id="data-label" for="data-value"></label>
-            <span id="data-value"></span>
-        </div>
-        <div id="map"></div>
-    </div>
+  <div class="wrapper">
+    <div class="container">
+      <header>
+        <h1>Map Spreading Growth</h1>
+      </header>
 
-    <div class="clear"></div>
-    <div class="map-options">
-        <ul class="">
-            <li><a href="#">Seller Population</a></li>
-            <li><a href="#">Buyer Population</a></li>
-            <li><a href="#">Transactions</a></li>
-        </ul>
+      <div class="content">
+        <div class="map-content">
+          <h2>Bukalapak Seller Population</h2>
+            <div id="controls" class="nicebox">
+                <div>
+                    <select id="census-variable">
+                      <option value="json/seller-population">Seller Population      </option>
+                      <option value="json/seller-population">Buyer Population</option>
+                      <option value="json/seller-population">Transactions</option>
+                  </select>
+                </div>
+                <div id="legend">
+                    <div id="census-min">min</div>
+                    <div class="color-key"><span id="data-caret">&#x25c6;</span></div>
+                    <div id="census-max">max</div>
+                </div>
+            </div>
+            <div id="data-box" class="nicebox">
+                <label id="data-label" for="data-value"></label>
+                <span id="data-value"></span>
+            </div>
+            <div id="map"></div>
+            <div class="clear"></div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="copy">
+          &copy; 2017 by 4G Team - Bukalapak Hackathon 2017
+        </div>
+      </footer>
     </div>
-    </div>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ1K9TaK2vhGRWu4p-OWmxLin7uKt7LNI&callback=initMap"></script>
-    <script type="text/javascript" src="javascripts/january.js"></script>
-    <script type="text/javascript" src="javascripts/map.js"></script>
+  </div>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ1K9TaK2vhGRWu4p-OWmxLin7uKt7LNI&callback=initMap"></script>
+<script type="text/javascript" src="javascripts/january.js"></script>
+<script type="text/javascript" src="javascripts/map.js"></script>
 </body>
-
 </html>
