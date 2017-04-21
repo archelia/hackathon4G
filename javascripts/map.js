@@ -42,7 +42,8 @@ function initMap() {
 /** Loads the state boundary polygons from a GeoJSON source. */
 function loadMapShapes() {
   // load US state outline polygons from a GeoJson file
-  map.data.loadGeoJson('https://storage.googleapis.com/mapsdevsite/json/states.js', { idPropertyName: 'STATE' });
+  // map.data.loadGeoJson('https://storage.googleapis.com/mapsdevsite/json/states.js', { idPropertyName: 'STATE' });
+  map.data.loadGeoJson('javascripts/file.js', { idPropertyName: 'STATE' });
 
   // wait for the request to complete by listening for the first feature to be
   // added

@@ -39,3 +39,7 @@ header {
   position: relative;
   height: 800px;
 }
+
+.clear{
+  clear: both;
+}

@@ -12,13 +12,13 @@
   border: rgb(229, 229, 229) 1px solid;
 }
 #controls {
-  top: 10px;
+  top: 48px;
   left: 110px;
   width: 360px;
   height: 45px;
 }
 #data-box {
-  top: 10px;
+  top: 48px;
   left: 500px;
   height: 45px;
   line-height: 45px;
