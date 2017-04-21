@@ -1,25 +1,4 @@
 var citymap = {
-  Badung: {
-    center: {
-      lat: -8.581930,
-      lng: 115.177059
-    },
-    population: 20637
-  },
-  Bangli: {
-    center: {
-      lat: -8.581930,
-      lng: 115.177059
-    },
-    population: 1941
-  },
-  Buleleng: {
-    center: {
-      lat: -8.581930,
-      lng: 115.177059
-    },
-    population: 42332
-  },
   JakartaSelatan: {
     center: {
       lat: -6.261493,
@@ -32,7 +11,7 @@ var citymap = {
       lat: -6.138377,
       lng: 106.866466
     },
-    population: 260747
+    population: 123962
   },
   JakartaTimur: {
     center: {

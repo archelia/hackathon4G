@@ -1,4 +1,39 @@
 var citymap = {
+  JakartaSelatan: {
+    center: {
+      lat: -6.261493,
+      lng: 106.810600
+    },
+    population: 272745
+  },
+  JakartaUtara: {
+    center: {
+      lat: -6.138377,
+      lng: 106.866466
+    },
+    population: 130832
+  },
+  JakartaTimur: {
+    center: {
+      lat: -6.225014,
+      lng: 106.900447
+    },
+    population: 205488
+  },
+  JakartaBarat: {
+    center: {
+      lat: -6.168329,
+      lng: 106.758849
+    },
+    population: 216246
+  },
+  JakartaPusat: {
+    center: {
+      lat: -6.186486,
+      lng: 106.834091
+    },
+    population: 173708
+  },
   Semarang: {
     center: {
       lat: -7.005145,
@@ -447,7 +482,7 @@ var citymap = {
     },
     population: 5121
   },
-  Kabupaten Madiun: {
+  KabupatenMadiun: {
     center: {
       lat: -7.609331,
       lng: 111.618375
