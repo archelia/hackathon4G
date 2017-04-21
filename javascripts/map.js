@@ -22,7 +22,7 @@ function initMap() {
                 fillOpacity: 0.35,
                 map: map,
                 center: citymap[city].center,
-                radius: Math.sqrt(citymap[city].population) * 5
+                radius: Math.sqrt(citymap[city].population) * 25
             });
         } else {
             var cityCircle = new google.maps.Circle({
@@ -33,7 +33,7 @@ function initMap() {
                 fillOpacity: 0.35,
                 map: map,
                 center: citymap[city].center,
-                radius: Math.sqrt(citymap[city].population) * 5
+                radius: Math.sqrt(citymap[city].population) * 25
             });
         }
     }
