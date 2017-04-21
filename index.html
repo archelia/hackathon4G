@@ -1,75 +1,70 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Circles</title>
     <style>
-      /* Always set the map height explicitly to define the size of the div
+        /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 70%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="map"></div>
-    <script>
-      // This example creates circles on the map, representing populations in North
-      // America.
 
-      // First, create an object containing LatLng and population for each city.
-
-      function initMap() {
-        // Create the map.
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 7,
-          center: {lat: -7.614529, lng: 110.712246},
-          mapTypeId: 'terrain'
-        });
-
-        // Construct the circle for each value in citymap.
-        // Note: We scale the area of the circle based on the population.
-        for (var city in citymap) {
-          // Add the circle for this city to the map.
-          if(Math.sqrt(citymap[city].population) < 200)
-          {
-            var cityCircle = new google.maps.Circle({
-              strokeColor: '#000000',
-              strokeOpacity: 0.8,
-              strokeWeight: 2,
-              fillColor: '#000000',
-              fillOpacity: 0.35,
-              map: map,
-              center: citymap[city].center,
-              radius: Math.sqrt(citymap[city].population)*5
-            });
-          }
-          else
-          {
-            var cityCircle = new google.maps.Circle({
-              strokeColor: '#FF0000',
-              strokeOpacity: 0.8,
-              strokeWeight: 2,
-              fillColor: '#FF0000',
-              fillOpacity: 0.35,
-              map: map,
-              center: citymap[city].center,
-              radius: Math.sqrt(citymap[city].population)*5
-            });
-          }
+        #map {
+            height: 100%;
         }
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ1K9TaK2vhGRWu4p-OWmxLin7uKt7LNI&callback=initMap">
-    </script>
-    <script type="text/javascript" src="january.js"></script>
-  </body>
+        /* Optional: Makes the sample page fill the window. */
+
+        html,
+        body {
+            height: 70%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <div class="map-content">
+        <h2>Bukalapak Seller Population</h2>
+        <div id="controls" class="nicebox">
+            <div>
+                <select id="census-variable">
+                <option value="json/seller-population">Seller Population
+                school</option>
+                <option value="https://storage.googleapis.com/mapsdevsite/json/DP02_0066PE">Percent of population over 25 that completed high
+                school</option>
+                <option value="https://storage.googleapis.com/mapsdevsite/json/DP05_0017E">Median age</option>
+                <option value="https://storage.googleapis.com/mapsdevsite/json/DP05_0001E">Total population</option>
+                <option value="https://storage.googleapis.com/mapsdevsite/json/DP02_0016E">Average family size</option>
+                <option value="https://storage.googleapis.com/mapsdevsite/json/DP03_0088E">Per-capita income</option>
+              </select>
+            </div>
+            <div id="legend">
+                <div id="census-min">min</div>
+                <div class="color-key"><span id="data-caret">&#x25c6;</span></div>
+                <div id="census-max">max</div>
+            </div>
+        </div>
+        <div id="data-box" class="nicebox">
+            <label id="data-label" for="data-value"></label>
+            <span id="data-value"></span>
+        </div>
+        <div id="map"></div>
+    </div>
+
+    <div class="clear"></div>
+    <div class="map-options">
+        <ul class="">
+            <li><a href="#">Seller Population</a></li>
+            <li><a href="#">Buyer Population</a></li>
+            <li><a href="#">Transactions</a></li>
+        </ul>
+    </div>
+    </div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ1K9TaK2vhGRWu4p-OWmxLin7uKt7LNI&callback=initMap"></script>
+    <script type="text/javascript" src="javascripts/january.js"></script>
+    <script type="text/javascript" src="javascripts/map.js"></script>
+</body>
+
 </html>
