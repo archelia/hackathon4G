@@ -569,7 +569,7 @@ var citymap = {
     },
     population: 4853
   },
-  Kabupaten Madiun: {
+  KabupatenMadiun: {
     center: {
       lat: -7.609331,
       lng: 111.618375
