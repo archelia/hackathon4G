@@ -10,7 +10,7 @@
 
 html,
 body {
-  background: $bg-gray;
+  background: #CCC;
 }
 
 footer {
@@ -18,19 +18,15 @@ footer {
 }
 
 header {
-  background: $bg-gray;
-  left: 0;
-  padding: 10px 30px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 5;
 }
 
 .wrapper {
   margin: auto;
-  padding: 80px 30px 30px;
-  width: 100%;
+  padding: 20px;
+}
+
+.container {
+  padding: 20px;
 }
 
 .content {
@@ -39,10 +35,7 @@ header {
   padding: 30px;
 }
 
-.toggle {
+.map-content {
   position: relative;
-
-  &:hover .toggle-content {
-    display: block;
-  }
+  height: 800px;
 }
