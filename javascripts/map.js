@@ -51,14 +51,21 @@ function render() {
                 fillOpacity: 0.35,
                 map: map,
                 center: citymap[city].center,
-                radius: 7500
+                radius: Math.sqrt(citymap[city].population) * 50
+
             });
         }
 
         var marker = new google.maps.Marker({
             position: citymap[city].center,
-            map: map
-        });
+            map: map,
+            icon: {
+                  path: google.maps.SymbolPath.CIRCLE,
+                  scale: 5,
+                  strokeWeight:0.001,
+                  fillOpacity:0.001
+               },
+            });
         var message = "<p> Kota/Kab: " + citymap[city].name + "</p>"+ "<p>  Jumlah User:" + citymap[city].population + "</p>";
         attachSecretMessage(marker, message);
     }
@@ -69,7 +76,8 @@ function render() {
         });
 
         marker.addListener('click', function() {
-            infowindow.open(marker.get('map'), marker);
+        infowindow.open(marker.get('map'), marker);
+
         });
     }
 }
