@@ -80,7 +80,7 @@ function render() {
              },
           });
 
-        var message = "<p> Kota/Kab: " + citymap[city].name + "</p>"+ "<p>  Jumlah User:" + citymap[city].population + "</p>";
+        var message = "<p> Kota/Kab : <strong>" + citymap[city].name + "</strong></p>"+ "<p>  Jumlah User : <strong>" + citymap[city].population + "</strong></p>";
         attachSecretMessage(marker, message);
     }
 
