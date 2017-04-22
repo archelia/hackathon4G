@@ -1,6 +1,9 @@
+var month = 'january';
+var map;
+
 function initMap() {
     // Create the map.
-    var map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
         zoom: 7,
         center: {
             lat: -7.614529,
@@ -8,12 +11,27 @@ function initMap() {
         },
         mapTypeId: 'terrain'
     });
+    var e = document.getElementById("month");
+    month = e.options[e.selectedIndex].value;
 
     map.data.addListener('mouseover', mouseInToCity);
     map.data.addListener('mouseout', mouseOutOfCity);
 
     // Construct the circle for each value in citymap.
     // Note: We scale the area of the circle based on the population.
+    render();
+}
+
+function render() {
+    console.log('render');
+    if (month === 'january') {
+        console.log("january");
+        var citymap = january;
+    }
+    if (month === 'february') {
+        console.log("February");
+        var citymap = february;
+    }
     for (var city in citymap) {
       color = '';
       pops = Math.sqrt(citymap[city].population);
@@ -42,27 +60,31 @@ function initMap() {
           radius: Math.sqrt(citymap[city].population) * 25
       });
 
-      function mouseInToCity(e) {
-        // set the hover state so the setStyle function can change the border
-        e.feature.setProperty(city, 'hover');
-        document.getElementById('data-label').textContent = e.feature.getProperty('NAME');
-        document.getElementById('data-box').style.display = 'block';
-      }
 
+      var marker = new google.maps.Marker({
+          position: citymap[city].center,
+          map: map,
+          icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 5,
+                strokeWeight:0.001,
+                fillOpacity:0.001,
+                radius: Math.sqrt(citymap[city].population) * 25
+             },
+          });
 
-      function mouseOutOfCity(e) {
-        // reset the hover state, returning the border to normal
-        e.feature.setProperty(city, 'normal');
-      }
+        var message = "<p> Kota/Kab: " + citymap[city].name + "</p>"+ "<p>  Jumlah User:" + citymap[city].population + "</p>";
+        attachSecretMessage(marker, message);
+    }
 
-      // cityCircle.addListener('mouseover', function(city, pops) {
-      //   document.getElementById('data-label').innerHTML = city;
-      //   document.getElementById('data-box').style.display = 'block';
-      // });
-      //
-      // cityCircle.addListener('mouseout', function() {
-      //   document.getElementById('data-box').style.display = 'none';
-      // });
+    function attachSecretMessage(marker, message) {
+        var infowindow = new google.maps.InfoWindow({
+            content: message
+        });
 
+        marker.addListener('click', function() {
+        infowindow.open(marker.get('map'), marker);
+
+        });
     }
 }
