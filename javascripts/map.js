@@ -14,16 +14,12 @@ function initMap() {
     var e = document.getElementById("month");
     month = e.options[e.selectedIndex].value;
 
-    map.data.addListener('mouseover', mouseInToCity);
-    map.data.addListener('mouseout', mouseOutOfCity);
-
     // Construct the circle for each value in citymap.
     // Note: We scale the area of the circle based on the population.
     render();
 }
 
 function render() {
-    console.log('render');
     if (month === 'january') {
         console.log("january");
         var citymap = january;
@@ -34,21 +30,33 @@ function render() {
     }
     for (var city in citymap) {
       color = '';
+      scale = 9;
       pops = Math.sqrt(citymap[city].population);
-      if (pops < 200)
-        color = '#FF0000';
-      else if (pops < 400)
-        color = '#d3af21';
-      else if (pops < 600)
-        color = '#72c119';
-      else
-        color = '#0ea052';
-      // Add the circle for this city to the map.
-      map.data
-          .getFeatureById(stateId)
-          .setProperty('census_variable', censusVariable);
-      });
+      rad = Math.sqrt(citymap[city].population) * 25;
+      if (rad > 8000)
+        rad = 8000;
 
+
+      if (pops < 100)
+        color = '#FF0000';
+      else if (pops < 200){
+        scale = 15;
+        color = '#d98c27';
+      }
+      else if (pops < 300) {
+        scale = 20;
+        color = '#cec01f';
+      }
+      else if (pops < 400){
+        color = '#5dbe19';
+        scale = 25;
+      }
+      else {
+        color = '#0ea052';
+        scale = 35;
+      }
+
+      // Add the circle for this city to the map.
       var cityCircle = new google.maps.Circle({
           strokeColor: color,
           strokeOpacity: 0.8,
@@ -57,19 +65,18 @@ function render() {
           fillOpacity: 0.35,
           map: map,
           center: citymap[city].center,
-          radius: Math.sqrt(citymap[city].population) * 25
+          radius: rad
       });
-
 
       var marker = new google.maps.Marker({
           position: citymap[city].center,
           map: map,
           icon: {
                 path: google.maps.SymbolPath.CIRCLE,
-                scale: 5,
+                scale: scale,
                 strokeWeight:0.001,
-                fillOpacity:0.001,
-                radius: Math.sqrt(citymap[city].population) * 25
+                fillOpacity: 1,
+                fillColor: 'transparent'
              },
           });
 

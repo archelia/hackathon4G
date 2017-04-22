@@ -14,7 +14,7 @@ body {
 }
 
 footer {
-  background: #fff;
+  background: #f1f4f7;
 }
 
 header {
@@ -23,13 +23,7 @@ header {
   left: 0;
   right: 0;
   padding: 20px;
-  background-color: white;
-}
-
-.wrapper {
-  margin: auto;
-  padding: 60px 0 0;
-  background: #f1f4f7;
+  background-color: #000;
   position: relative;
 }
 
@@ -39,7 +33,7 @@ header {
 }
 
 .map-filters{
-  background: #fff;
+  background: #f1f4f7;
   padding: 25px;
 }
 
@@ -58,10 +52,4 @@ header {
 
 .clear{
   clear: both;
-}
-
-header .title {
-  text-align: center;
-  color: #ba0e0e;
-  font-weight: bold;
 }
